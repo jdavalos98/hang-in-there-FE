@@ -9,7 +9,8 @@ var posterImageInput = document.querySelector('#poster-image-url')
 var posterTitleInput = document.querySelector('#poster-title')
 var posterQuoteInput = document.querySelector('#poster-quote')
 var savedPostersGrid = document.querySelector('.saved-posters-grid')
-
+var unmotivationalPostersSection = document.querySelector('#unmotivational-posters')
+var unmotivationalPostersDisplay = document.querySelector('#unmotivational-poster-display')
 
 var showRandomBtn = document.querySelector('.show-random')
 var makePosterBtn = document.querySelector('.show-form')
@@ -18,6 +19,8 @@ var nevermindBtn = document.querySelector('.show-main')
 var backToMainBtn = document.querySelector('.back-to-main')
 var showMyPosterBtn = document.querySelector('.make-poster')
 var savePosterBtn = document.querySelector('.save-poster')
+var unmotivationalPostersBtn = document.querySelector('.unmotivational-poster-button')
+var backToMainUnmotivationalBtn = document.querySelector('#back-to-main-unmotivational')
 
 // we've provided you with some data to work with 👇
 // tip: you can tuck this data out of view with the dropdown found near the line number where the variable is declared 
@@ -121,6 +124,129 @@ var quotes = [
 var savedPosters = [];
 var currentPoster;
 
+let unmotivationalPosters = [
+    {
+      name: "FAILURE",
+      description: "Why bother trying? It's probably not worth it.",
+      price: 68.00,
+      year: 2019,
+      vintage: true,
+      img_url: "./assets/failure.jpg",
+    },
+    {
+      name: "MEDIOCRITY",
+      description: "Dreams are just that—dreams.",
+      price: 127.00,
+      year: 2021,
+      vintage: false,
+      img_url: "./assets/mediocrity.jpg",
+    },
+    {
+      name: "REGRET",
+      description: "Hard work rarely pays off.",
+      price: 89.00,
+      year: 2018,
+      vintage: true,
+      img_url:  "./assets/regret.jpg",
+    },
+    {
+      name: "FUTILITY",
+      description: "You're not good enough.",
+      price: 150.00,
+      year: 2016,
+      vintage: false,
+      img_url:  "./assets/futility.jpg",
+    },
+    {
+      name: "DEFEAT",
+      description: "It's too late to start now.",
+      price: 35.00,
+      year: 2023,
+      vintage: false,
+      img_url:  "./assets/defeat.jpg",
+    },
+    {
+      name: "HOPELESSNESS",
+      description: "Stay in your comfort zone; it's safer.",
+      price: 112.00,
+      year: 2020,
+      vintage: true,
+      img_url: "./assets/hopelessness.jpg",
+    },
+    {
+      name: "LAZINESS",
+      description: "You can't change anything.",
+      price: 25.00,
+      year: 2022,
+      vintage: false,
+      img_url: "./assets/laziness.jpg",
+    },
+    {
+      name: "PROCRASTINATION",
+      description: "Better to avoid failure by not trying at all.",
+      price: 48.00,
+      year: 2017,
+      vintage: true,
+      img_url: "./assets/procrastination.jpg",
+    },
+    {
+      name: "DESPAIR",
+      description: "Let someone else do it; you’ll just mess it up.",
+      price: 73.00,
+      year: 2015,
+      vintage: false,
+      img_url: "./assets/despair.jpg",
+    },
+    {
+      name: "NEGLECT",
+      description: "Happiness is overrated.",
+      price: 160.00,
+      year: 2019,
+      vintage: true,
+      img_url: "./assets/neglect.jpg",
+    },
+    {
+      name: "FEAR",
+      description: "Giving up is always an option.",
+      price: 91.00,
+      year: 2014,
+      vintage: false,
+      img_url: "./assets/fear.jpg",
+    },
+    {
+      name: "APATHY",
+      description: "No one cares about your effort.",
+      price: 110.00,
+      year: 2016,
+      vintage: true,
+      img_url: "./assets/apathy.jpg",
+    },
+    {
+      name: "MISERY",
+      description: "Why take risks when you can stay stagnant?",
+      price: 55.00,
+      year: 2021,
+      vintage: false,
+      img_url: "./assets/misery.jpg",
+    },
+    {
+      name: "BLAME",
+      description: "Expect disappointment and you'll never be disappointed.",
+      price: 39.00,
+      year: 2017,
+      vintage: true,
+      img_url: "./assets/blame.jpg",
+    },
+    {
+      name: "DOUBT",
+      description: "Success is for other people, not you.",
+      price: 140.00,
+      year: 2020,
+      vintage: false,
+      img_url: "./assets/doubt.jpg",
+    }
+  ];
+
 // event listeners go here 👇
 window.addEventListener('load', displayRandomPoster)
 showRandomBtn.addEventListener('click', displayRandomPoster)
@@ -130,6 +256,8 @@ backToMainBtn.addEventListener('click', showMainSection)
 nevermindBtn.addEventListener('click', showMainSection)
 showMyPosterBtn.addEventListener('click', posterFormSubmit)
 savePosterBtn.addEventListener('click', savePoster)
+unmotivationalPostersBtn.addEventListener('click', showUnmotivationalPosters)
+backToMainUnmotivationalBtn.addEventListener('click', showMainPoster)
 
 
 // functions and event handlers go here 👇
@@ -174,6 +302,7 @@ function showSavedSection() {
 }
 
 function showMainSection() {
+    console.log("Back to Main button Click")
     switchView(mainPosterSection, [formSection, savedPostersSection])
 }
 
@@ -252,4 +381,35 @@ function savePoster() {
         savedPostersGrid.appendChild(miniPoster)
     })
 
+}
+
+function showUnmotivationalPosters() {
+    switchView(unmotivationalPostersSection, [mainPosterSection, formSection, savedPostersSection]);
+
+    unmotivationalPostersDisplay.innerHTML = '';
+
+    unmotivationalPosters.forEach(function(poster) {
+        var posterDiv = document.createElement('div');
+        posterDiv.classList.add('unmotivational-poster');
+
+        var img = document.createElement('img');
+        img.src = poster.img_url;
+        img.alt = poster.name;
+
+        var title = document.createElement('h2');
+        title.innerText = poster.name;
+
+        var description = document.createElement('p');
+        description.innerText = poster.description;
+
+        posterDiv.appendChild(img);
+        posterDiv.appendChild(title);
+        posterDiv.appendChild(description);
+
+        unmotivationalPostersDisplay.appendChild(posterDiv);
+    });
+}
+
+function showMainPoster() {
+    switchView(mainPosterSection, [unmotivationalPostersSection, formSection, savedPostersSection]);
 }
