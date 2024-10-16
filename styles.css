@@ -4,7 +4,6 @@
 *:after {
   box-sizing: border-box;
   font-family: "EB Garamond", serif;
-  margin: auto;
   text-align: center;
 }
 
@@ -42,6 +41,7 @@ button:hover {
   background: black;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: center;
   margin: 20px auto;
   padding: 50px 20px;
@@ -124,8 +124,8 @@ button:hover {
   width: 425px;
 }
 
-.mini-poster img, .unmotivational-poster img {
-  height:200px;
+.mini-poster img {
+  height: 200px;
   width: 300px;
 }
 
@@ -146,12 +146,58 @@ button:hover {
 }
 /* ~~~~~ UNMOTIVATIONAL POSTER SECTION ~~~~~ */
 
+.unmotivational-poster img {
+    width: 260px;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
 .unmotivational-poster h2 {
     font-size: 24px;
-    color: darkred
+    color: darkred;
+    margin-top: 10px
 }
 
 .unmotivational-poster p {
     font-size: 16px;
-    color: darkgrey
+    color: black;
+    margin-top: 5px;
+}
+
+.unmotivational-poster-button,
+.back-to-main {
+    background: black;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+    padding: 10px  20px;
+    margin: 10px;
+}
+
+.unmotivational-poster-button:hover,
+.back-to-main:hover {
+    background: darkslateblue;
+}
+
+#unmotivational-poster-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: lightgrey;
+}
+
+.unmotivational-poster {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the image and other content horizontally */
+    justify-content: space-between;
+    background: lightgrey;
+    padding: 20px;
+    width: 280px;
+    height: 320px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
