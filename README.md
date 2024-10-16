@@ -25,22 +25,30 @@ ______________________________________________________
 # Hang in There  
 
 ### Abstract:
-[//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+In this project we used JavaScript, HTML, and CSS to create a motivational and unmotivational poster webpage. The features of this project are showing randomly created posters from provided data, allow users to create there own posters, show unmotivational posters, and delete those clicking anywhere on them(title,image, or quote). It is used to have a easy way to create and save motivational posters for later use. 
 
 ### Installation Instructions:
-[//]: <> (What steps does a person have to take to get your app cloned down and running?)
+1. Navigae to [github](https://github.com/jdavalos98/hang-in-there-FE)
+2. git clone the repo to your machine
+3. navigate and open in vscode using 'code .' in your terminal
+4. Also in your terminal open up the html by using 'open index.html' in the terminal and this will open in your default internet browser
+5. From here you can play around the the site and to get back to a clean slate just reload the page. 
 
-### Preview of App:
-[//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off. gifs preferred!)
+
 
 ### Context:
-[//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
+ This project took 10 days to complete and I am currently rounding out my second week in Mod 2 here at Turing. 
 
 ### Contributors:
-[//]: <> (Who worked on this application? Link to your GitHub. Consider also providing LinkedIn link)
+Joel Davalos
 
 ### Learning Goals:
-[//]: <> (What were the learning goals of this project? What tech did you work with?)
+1. Practice reading, understanding, and using existing code
+2. Write clean, DRY JavaScript
+3. Build out functionality using functions that show trends toward SRP
+4. Manipulate the page after it has loaded by adding, removing, and updating elements on the DOM
+5. Use array prototype iterator methods to reformat data and display it on the DOM
+6. Use CSS and HTML to match styling and layout of provided comps
 
 ### Wins + Challenges:
-[//]: <> (What are 2-3 wins you have from this project? What were some challenges you faced - and how did you get over them?)
+My main win in this project was seeing where and being able to use array prototype methods we have learned in class and use the docs to find others that would suit my needs. Also I was able to complete and get all functionality working with clean and dry code. As for challenges it took me a while to find how to get posters to randomize on page reload. After struggling with trying different solutions I asked chatgpt if you could do a event listener on the window and was told yes. From there I created one using the already created randomize function and it worked like a charm. I also near the end was struggling with how to move an event listener out of one of my functions and is the major refactor Id like to go back and look into in the near future so as for this one I was not able to overcome this one. 
