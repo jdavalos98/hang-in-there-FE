@@ -276,6 +276,8 @@ function displayRandomPoster() {
     posterImage.src = randomImage
     posterTitle.innerText = randomTitle
     posterQuote.innerText = randomQuote
+
+    currentPoster = createPoster(randomImage, randomTitle, randomQuote)
 }
 
 function createPoster(imageURL, title, quote) {
